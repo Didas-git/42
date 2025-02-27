@@ -1,8 +1,13 @@
 {
-    "editor.formatOnSave": false,
+    "[c]": {
+        "editor.formatOnSave": false,
+        "editor.insertSpaces": false,
+    },
     "files.associations": {
         "stdio.h": "c",
         "stddef.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "cmath": "c",
+        "limits": "c"
     }
 }
