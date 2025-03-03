@@ -24,8 +24,26 @@ void	print(int arr[])
 	write(1, " ", 1);
 }
 
-int	increment_from_index(int arr[], int start)
+void	reset(int arr[], int i)
 {
+	if (i < 10)
+	{
+		*(arr + 2) = 0;
+		*(arr + 3) = i;
+	}
+	else
+	{
+		*(arr + 2) = ((i % 100) / 10);
+		*(arr + 3) = ((i % 100) % 10);
+	}
+}
+
+int	increment_from_index(int arr[], int start, int i)
+{
+	if (start == 0)
+	{
+		reset(arr, i);
+	}
 	if (*(arr + (start + 1)) == 9)
 	{
 		if (*(arr + start) == 9)
@@ -49,15 +67,13 @@ void	inner_loop(int arr[])
 	should_break = 0;
 	while (1)
 	{
-		should_break = increment_from_index(arr, 2);
+		should_break = increment_from_index(arr, 2, 0);
 		if (should_break == -1)
 		{
 			break ;
 		}
 		print(arr);
 	}
-	*(arr + 2) = 0;
-	*(arr + 3) = 0;
 }
 
 // This is meant to be unique not readable
@@ -69,13 +85,13 @@ void	ft_print_comb2(void)
 	*m = 0;
 	*(m + 1) = 0;
 	*(m + 2) = 0;
-	*(m + 3) = 0;
-	i = 0;
-	while (i < 99)
+	*(m + 3) = 1;
+	i = 1;
+	while (i < 100)
 	{
 		print(m);
 		inner_loop(m);
-		increment_from_index(m, 0);
 		i++;
+		increment_from_index(m, 0, i);
 	}
 }

@@ -9,7 +9,7 @@ void	print(char str[], char start)
 	}
 }
 
-void	hundred_loop(char str[], int *a, char *index)
+void	hundred_loop(char str[], unsigned int *a, char *index)
 {
 	while (*a >= 100)
 	{
@@ -20,7 +20,7 @@ void	hundred_loop(char str[], int *a, char *index)
 	}
 }
 
-void	fill_smaller(char str[], int *a, char *index)
+void	fill_smaller(char str[], unsigned int *a, char *index)
 {
 	if (*a < 10)
 	{
@@ -35,25 +35,26 @@ void	fill_smaller(char str[], int *a, char *index)
 	}
 }
 
+unsigned int	absolute(int n)
+{
+	int	mask;
+
+	mask = n >> (sizeof(int) * 8 - 1);
+	return ((n ^ mask) - mask);
+}
+
 // Why, just why
 // C provides itoa and snprintf
 // Either way, this implementation is based of
 // of zig's std implementation for `fmt.formatInt`
 void	ft_putnbr(int nb)
 {
-	char	str[16];
-	char	index;
-	int		a;
+	char			str[16];
+	char			index;
+	unsigned int	a;
 
 	index = 16;
-	if (nb < 0)
-	{
-		a = -nb;
-	}
-	else
-	{
-		a = nb;
-	}
+	a = absolute(nb);
 	hundred_loop(str, &a, &index);
 	fill_smaller(str, &a, &index);
 	if (nb < 0)
