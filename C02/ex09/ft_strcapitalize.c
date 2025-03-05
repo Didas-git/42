@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 char	to_lower(char c)
 {
 	unsigned char	mask;

@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 const char	g_charset[16] = "0123456789abcdef";
 
@@ -83,7 +82,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	{
 		return (addr);
 	}
-	loop_count = 1 + ((size - 1) / 16);
+	loop_count = 1 + ((size) / 16);
 	while (i < loop_count)
 	{
 		working_address = addr + (i * 16);
