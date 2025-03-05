@@ -9,5 +9,8 @@
         "unistd.h": "c",
         "cmath": "c",
         "limits": "c"
-    }
+    },
+    "cSpell.words": [
+        "strcapitalize"
+    ]
 }
