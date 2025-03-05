@@ -7,5 +7,5 @@ int	ft_strlen(char *str)
 	{
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }
