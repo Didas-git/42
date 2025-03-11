@@ -1,4 +1,4 @@
-char	*ft_strlcpy(char *dest, char *src, unsigned int n)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
 
@@ -8,6 +8,6 @@ char	*ft_strlcpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i + 1] = '\0';
-	return (dest);
+	dest[i] = '\0';
+	return i;
 }
